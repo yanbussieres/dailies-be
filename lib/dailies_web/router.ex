@@ -5,10 +5,6 @@ defmodule DailiesWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", DailiesWeb do
-    pipe_through :api
-  end
-
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
@@ -16,13 +12,11 @@ defmodule DailiesWeb.Router do
   # If your application does not have an admins-only section yet,
   # you can use Plug.BasicAuth to set up some basic authentication
   # as long as you are also using SSL (which you should anyway).
-  if Mix.env() in [:dev, :test] do
-    import Phoenix.LiveDashboard.Router
-
-    scope "/" do
-      pipe_through [:fetch_session, :protect_from_forgery]
-
-      live_dashboard "/dashboard", metrics: DailiesWeb.Telemetry
+  scope "/" do
+    if Mix.env() == :dev do
+      forward "/graphiql", Absinthe.Plug.GraphiQL, schema: DailiesWeb.Schema
+    else
+      forward "/graphql", Absinthe.Plug, schema: DailiesWeb.Schema
     end
   end
 

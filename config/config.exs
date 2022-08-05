@@ -10,6 +10,11 @@ import Config
 config :dailies,
   ecto_repos: [Dailies.Repo]
 
+config :dailies, Dailies.Repo,
+  migration_timestamps: [
+    type: :timestamptz
+  ]
+
 # Configures the endpoint
 config :dailies, DailiesWeb.Endpoint,
   url: [host: "localhost"],
