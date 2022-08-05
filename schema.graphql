@@ -1,0 +1,14 @@
+"Represents a schema"
+schema {
+  query: RootQueryType
+}
+
+type Win {
+  id: ID!
+  content: String!
+}
+
+type RootQueryType {
+  "Get all wins"
+  allWins: [Win!]!
+}
