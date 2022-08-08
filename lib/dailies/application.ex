@@ -15,7 +15,7 @@ defmodule Dailies.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Dailies.PubSub},
       # Start the Endpoint (http/https)
-      DailiesWeb.Endpoint
+      {SiteEncrypt.Phoenix, DailiesWeb.Endpoint}
       # Start a worker by calling: Dailies.Worker.start_link(arg)
       # {Dailies.Worker, arg}
     ]

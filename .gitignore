@@ -22,3 +22,8 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 dailies-*.tar
 
+# Ignore secrets files
+/config/*.secret.exs
+
+# Ignore local cert files
+/tmp/

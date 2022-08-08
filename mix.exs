@@ -46,7 +46,8 @@ defmodule Dailies.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:cors_plug, "~> 3.0"},
       {:absinthe, "~> 1.7"},
-      {:absinthe_plug, "~> 1.5"}
+      {:absinthe_plug, "~> 1.5"},
+      {:site_encrypt, "~> 0.4"}
     ]
   end
 
